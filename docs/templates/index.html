@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+            <h3>Current Situation</h3>
+                <table class="table">
+                      <thead class="thead-light">
+                        <tr>
+                            <th>Stock</th>
+                            <th>Symbol</th>
+                            <th>Shares</th>
+                            <th>Current Stock Price</th>
+                            <th>Total Value of Holding</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        {% for entry in stocks %}
+                            <tr>
+                                <td style="text-align: left">{{ entry.name }}</td>
+                                <td style="text-align: left">{{ entry.symbol }}</td>
+                                <td style="text-align: right">{{ entry.shares }}</td>
+                                <td style="text-align: right">{{ entry.current_price | usd }}</td>
+                                <td style="text-align: right">{{ entry.value_holding | usd }} </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br/>
+                <br/>
+                <table class="table">
+                      <thead class="thead-light">
+                        <tr>
+                            <th style="width: 80%; text-align: right;" >Current Cash:</th>
+                            <th style="width: 20%; text-align: right;" >{{ current_cash }} </th>
+                        </tr>
+                      </thead>
+                    </tbody>
+                </table>
+                <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                            <th style="width: 80%; text-align: right;" >Grand Total:</th>
+                            <th style="width: 20%; text-align: right;">{{ grand_total }} </th>
+                        </tr>
+                      </thead>
+                    </tbody>
+                </table>
+
+{% endblock %}
