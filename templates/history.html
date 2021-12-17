@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+            <h3>Transaction History</h3>
+                <table class="table">
+                      <thead class="thead-light">
+                        <tr>
+                            <th>Stock Symbol</th>
+                            <th>Action (Buy or Sell)</th>
+                            <th>Price at Purchase or Sale</th>
+                            <th>Number of Stocks</th>
+                            <th>Time and Date</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        {% for entry in transactions %}
+                            <tr>
+                                <th scope="row" style="text-align: center">{{ entry.symbol }}</td>
+                                <td style="text-align: right"> {{ entry.bs }}</td>
+                                <td style="text-align: right">$ {{ entry.price_bs }}</td>
+                                <td style="text-align: right">{{ entry.shares }}</td>
+                                <td style="text-align: right">{{ entry.Timestamp }} </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+{% endblock %}
