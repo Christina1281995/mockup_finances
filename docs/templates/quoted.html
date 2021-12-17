@@ -1,9 +1,0 @@
-{% extends "layout.html" %}
-
-{% block title %}
-       Quote for {{ dict.get("name") }}
-{% endblock %}
-
-{% block main %}
-     <p> A share of {{ dict.get("name") }} ({{ symbol }}) costs ${{ dict.get("price") | usd }}. </p>
-{% endblock %}
